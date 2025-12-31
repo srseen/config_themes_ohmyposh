@@ -6,65 +6,56 @@
       "alignment": "left",
       "segments": [
         {
-          // OS: ใช้สีน้ำเงินสด แยก WSL กับ Windows
           "type": "os",
           "style": "plain",
           "foreground": "#3A86FF",
           "template": "[{{ if .WSL }}WSL{{ else }}WIN{{ end }}]|"
         },
         {
-          // User name: กลับมาใช้แดงเดิม
           "type": "session",
           "style": "plain",
           "foreground": "#f1184c",
           "template": " {{ .UserName }} |"
         },
         {
-          // แสดงเฉพาะตอนเป็น root
           "type": "root",
           "style": "plain",
           "foreground": "#f1184c",
           "template": " - root |"
         },
         {
-          // เวลา: สีเหลืองสด
           "type": "time",
           "style": "plain",
           "foreground": "#FFBB00",
-          "properties": {
+          "options": {
             "time_format": "2006-01-02 15:04:05"
           },
           "template": " {{ .CurrentDate | date .Format }} |"
         },
         {
-          // Path: กลับมาใช้เขียวเดิม
           "type": "path",
           "style": "plain",
           "foreground": "#33DD2D",
-          "properties": {
+          "options": {
             "folder_separator_icon": "/",
             "style": "full"
           },
           "template": " {{ .Path }} |"
         },
         {
-          // Git: สีน้ำเงินสด
           "type": "git",
           "style": "plain",
           "foreground": "#3A86FF",
           "template": " git: {{ .HEAD }}{{ if gt .StashCount 0 }} (stash: {{ .StashCount }}){{ end }} |"
         },
         {
-          // Status: สีเฉพาะของ status ไม่ชนกับ user/path
-          // OK  = #00C853 (เขียวอมฟ้า)
-          // ERR = #FF5722 (ส้มแดง)
           "type": "status",
           "style": "plain",
           "foreground": "#3A86FF",
           "foreground_templates": [
             "{{ if gt .Code 0 }}#f1184c{{ end }}"
           ],
-          "properties": {
+          "options": {
             "always_enabled": true
           },
           "template": "[{{ if eq .Code 0 }}OK{{ else }}ERR{{ end }}]"
@@ -72,7 +63,6 @@
       ]
     },
     {
-      // บรรทัดใหม่สำหรับ prompt symbol
       "type": "prompt",
       "alignment": "left",
       "newline": true,

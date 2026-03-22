@@ -9,7 +9,7 @@
           "type": "os",
           "style": "plain",
           "foreground": "#3A86FF",
-          "template": " {{ .Icon }} {{ if .WSL }}{{ .Env.WSL_DISTRO_NAME }}{{ else }}Windows{{ end }} |"
+          "template": "{{ if .WSL }}\ue712 {{ .Env.WSL_DISTRO_NAME }}{{ else }}\ue70f Windows{{ end }} |"
         },
         {
           "type": "session",

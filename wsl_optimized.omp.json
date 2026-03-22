@@ -1,0 +1,80 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "os",
+          "style": "plain",
+          "foreground": "#3A86FF",
+          "template": "\uf303 [{{ if .WSL }}{{ .Env.WSL_DISTRO_NAME }}{{ else }}WIN{{ end }}]|"
+        },
+        {
+          "type": "session",
+          "style": "plain",
+          "foreground": "#f1184c",
+          "template": " \uf007 {{ .UserName }} |"
+        },
+        {
+          "type": "root",
+          "style": "plain",
+          "foreground": "#f1184c",
+          "template": " \uf0ad root |"
+        },
+        {
+          "type": "time",
+          "style": "plain",
+          "foreground": "#FFBB00",
+          "options": {
+            "time_format": "2006-01-02 15:04:05"
+          },
+          "template": " \uf017 {{ .CurrentDate | date .Format }} |"
+        },
+        {
+          "type": "path",
+          "style": "plain",
+          "foreground": "#33DD2D",
+          "options": {
+            "folder_separator_icon": "/",
+            "style": "full"
+          },
+          "template": " \ue5ff {{ .Path }} |"
+        },
+        {
+          "type": "git",
+          "style": "plain",
+          "foreground": "#3A86FF",
+          "template": " \ue0a0 {{ .HEAD }}{{ if .Ahead }} F062 {{ .Ahead }}{{ end }}{{ if .Behind }} F063 {{ .Behind }}{{ end }}{{ if gt .StashCount 0 }} \uf01c {{ .StashCount }}{{ end }} |"
+        },
+        {
+          "type": "status",
+          "style": "plain",
+          "foreground": "#3A86FF",
+          "foreground_templates": [
+            "{{ if gt .Code 0 }}#f1184c{{ end }}"
+          ],
+          "options": {
+            "always_enabled": true
+          },
+          "template": " [{{ if eq .Code 0 }}\uf42e OK{{ else }}\uf00d ERR{{ end }}]"
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "#f1184c",
+          "template": "➜ "
+        }
+      ]
+    }
+  ],
+  "version": 3
+}

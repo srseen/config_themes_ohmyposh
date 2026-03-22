@@ -18,17 +18,11 @@
           "template": " \uf007 {{ .UserName }} |"
         },
         {
-          "type": "root",
-          "style": "plain",
-          "foreground": "#f1184c",
-          "template": " \uf0ad root |"
-        },
-        {
           "type": "time",
           "style": "plain",
           "foreground": "#FFBB00",
           "options": {
-            "time_format": "2006-01-02 15:04:05"
+            "time_format": "15:04:05"
           },
           "template": " \uf017 {{ .CurrentDate | date .Format }} |"
         },
@@ -47,6 +41,28 @@
           "style": "plain",
           "foreground": "#3A86FF",
           "template": " \ue0a0 {{ .HEAD }}{{ if .Ahead }} \uf062 {{ .Ahead }}{{ end }}{{ if .Behind }} \uf063 {{ .Behind }}{{ end }}{{ if gt .StashCount 0 }} \uf01c {{ .StashCount }}{{ end }} |"
+        },
+        {
+          "type": "node",
+          "style": "plain",
+          "foreground": "#6CA35E",
+          "template": " \ue718 {{ .Full }} |"
+        },
+        {
+          "type": "python",
+          "style": "plain",
+          "foreground": "#FFE873",
+          "template": " \ue73c {{ .Full }} |"
+        },
+        {
+          "type": "executiontime",
+          "style": "plain",
+          "foreground": "#832504",
+          "options": {
+            "threshold": 1000,
+            "style": "austin"
+          },
+          "template": " \uf252 {{ .FormattedMs }} |"
         },
         {
           "type": "status",

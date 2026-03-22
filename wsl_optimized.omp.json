@@ -9,7 +9,7 @@
           "type": "os",
           "style": "plain",
           "foreground": "#3A86FF",
-          "template": "\uf303 [{{ if .WSL }}{{ .Env.WSL_DISTRO_NAME }}{{ else }}WIN{{ end }}]|"
+          "template": "{{ if .WSL }}\uf303 [{{ .Env.WSL_DISTRO_NAME }}]{{ else }}\uf17a [WIN]{{ end }}|"
         },
         {
           "type": "session",
@@ -46,7 +46,7 @@
           "type": "git",
           "style": "plain",
           "foreground": "#3A86FF",
-          "template": " \ue0a0 {{ .HEAD }}{{ if .Ahead }} F062 {{ .Ahead }}{{ end }}{{ if .Behind }} F063 {{ .Behind }}{{ end }}{{ if gt .StashCount 0 }} \uf01c {{ .StashCount }}{{ end }} |"
+          "template": " \ue0a0 {{ .HEAD }}{{ if .Ahead }} \uf062 {{ .Ahead }}{{ end }}{{ if .Behind }} \uf063 {{ .Behind }}{{ end }}{{ if gt .StashCount 0 }} \uf01c {{ .StashCount }}{{ end }} |"
         },
         {
           "type": "status",
